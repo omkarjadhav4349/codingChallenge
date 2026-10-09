@@ -1,16 +1,24 @@
-# React + Vite
+# Airtrack — Live Aircraft Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite tracker for nearby aircraft using the free, public [adsb.lol API](https://api.adsb.lol/) and a Leaflet map with OpenStreetMap tiles. No API key is needed.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```sh
+npm install
+npm run dev
+```
 
-## React Compiler
+Vite proxies `/api/traffic/*` to `https://api.adsb.lol/v2/*` in development and preview so the browser can read the feed without a cross-origin request. The tracker starts near London; use **Near me** to center it on your current location. Positions refresh every 15 seconds.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Build
 
-## Expanding the ESLint configuration
+```sh
+npm run lint
+npm run build
+npm run preview
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+When deploying the static build, configure your hosting platform to reverse-proxy `/api/traffic/*` to `https://api.adsb.lol/v2/*` and preserve the remaining path. For example, `/api/traffic/lat/51.5/lon/-0.1/dist/150` should reach `/v2/lat/51.5/lon/-0.1/dist/150`. Do not use the upstream API URL directly in browser code; it does not enable browser CORS.
+
+Aircraft data is community-received ADS-B and can be incomplete, delayed, or unavailable in some locations. The API is free for use; review its [terms and license](https://api.adsb.lol/) before production use. Map tiles and data are credited in the app.
