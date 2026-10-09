@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import L from 'leaflet'
 import { MapContainer, Marker, Popup, TileLayer, ZoomControl, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
+import WeatherPage from './WeatherPage.jsx'
 import './App.css'
 
 const API_ROOT = '/api/traffic'
@@ -89,7 +90,7 @@ function TrafficMap({ aircraft, center, selectedHex, onSelect }) {
     )
 }
 
-function App() {
+function AircraftTracker() {
     const [center, setCenter] = useState(DEFAULT_CENTER)
     const [radius, setRadius] = useState(150)
     const [aircraft, setAircraft] = useState([])
@@ -177,12 +178,13 @@ function App() {
     return (
         <main className="tracker-shell">
             <header className="tracker-header">
-                <a className="tracker-brand" href="#tracker" aria-label="Airtrack home">
+                <a className="tracker-brand" href="/" aria-label="Airtrack home">
                     <span className="brand-mark" aria-hidden="true">✳</span>
                     <span>AIRTRACK<span className="brand-period">.</span></span>
                 </a>
                 <div className="header-right">
                     <span className="data-credit">A little sky-watching by Omkar Jadhav</span>
+                    <a className="header-link weather-page-link" href="/weather">Weather <span aria-hidden="true">↗</span></a>
                     <a className="header-link" href="https://www.adsb.lol/" target="_blank" rel="noreferrer">Data source <span aria-hidden="true">↗</span></a>
                 </div>
             </header>
@@ -300,6 +302,10 @@ function App() {
             </footer>
         </main>
     )
+}
+
+function App() {
+    return window.location.pathname.startsWith('/weather') ? <WeatherPage /> : <AircraftTracker />
 }
 
 export default App

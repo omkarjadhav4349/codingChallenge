@@ -59,6 +59,12 @@
     font-weight: 650;
 }
 
+.weather-page-link {
+    padding: 8px 11px;
+    border: 1px solid #d6d9cf;
+    border-radius: 999px;
+}
+
 .header-link span {
     margin-left: 4px;
 }
