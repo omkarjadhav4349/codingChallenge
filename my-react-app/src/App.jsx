@@ -1,121 +1,98 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+    <main className="site-shell">
+      <header className="site-header">
+        <a className="wordmark" href="#home" aria-label="Omkar Jadhav, home">
+          <span className="wordmark-mark">OJ</span>
+          <span>Omkar Jadhav</span>
+        </a>
+        <nav className="site-nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#interests">What I do</a>
+          <a className="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        </nav>
+      </header>
+
+      <section className="intro" id="home" aria-labelledby="intro-title">
+        <div className="intro-copy">
+          <p className="eyebrow"><span className="status-dot" /> A little introduction</p>
+          <h1 id="intro-title">Hey, I’m <span>Omkar.</span><br />I make the web<br />feel a little more <em>human.</em></h1>
+          <p className="intro-description">
+            I’m a developer learning, building, and bringing thoughtful ideas to life on the web. I enjoy turning a blank page into something useful, clear, and a joy to explore.
           </p>
+          <div className="intro-actions">
+            <a className="button button-primary" href="#about">Get to know me <span aria-hidden="true">↓</span></a>
+            <a className="text-link" href="#contact">Say hello <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+        <div className="intro-art" aria-label="A decorative profile card for Omkar Jadhav" role="img">
+          <div className="art-orbit orbit-one" />
+          <div className="art-orbit orbit-two" />
+          <div className="sunburst" aria-hidden="true">✳</div>
+          <div className="profile-card">
+            <span className="card-label">A WORK IN PROGRESS</span>
+            <span className="profile-initials">OJ</span>
+            <span className="card-name">Omkar Jadhav</span>
+            <span className="card-role">Curious mind · Creative coder</span>
+            <span className="card-sparkle" aria-hidden="true">✦</span>
+          </div>
+          <span className="art-note note-top">made with curiosity</span>
+          <span className="art-note note-bottom">always learning ↗</span>
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <section className="about-section" id="about" aria-labelledby="about-title">
+        <div className="section-kicker"><span>01</span><span>THE PERSON BEHIND THE PIXELS</span></div>
+        <div className="about-content">
+          <h2 id="about-title">Good work starts<br />with <span>a little curiosity.</span></h2>
+          <div className="about-copy">
+            <p>I’m building my path in web development one project at a time. I like learning how things work, experimenting with ideas, and paying attention to the small details that make a digital experience feel right.</p>
+            <p>This page is my corner of the internet—a place to share what I’m learning and the things I’m excited to make next.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="interests-section" id="interests" aria-labelledby="interests-title">
+        <div className="section-kicker"><span>02</span><span>THINGS I’M INTO</span></div>
+        <h2 id="interests-title">A few things I enjoy <span>working on.</span></h2>
+        <div className="interest-grid">
+          <article className="interest-card">
+            <span className="interest-number">01 / BUILD</span>
+            <span className="interest-icon" aria-hidden="true">⌘</span>
+            <h3>Thoughtful interfaces</h3>
+            <p>Making websites that feel intuitive, welcoming, and easy to use.</p>
+          </article>
+          <article className="interest-card">
+            <span className="interest-number">02 / LEARN</span>
+            <span className="interest-icon" aria-hidden="true">↗</span>
+            <h3>Growing every day</h3>
+            <p>Exploring new tools and getting a little better with every project.</p>
+          </article>
+          <article className="interest-card">
+            <span className="interest-number">03 / CREATE</span>
+            <span className="interest-icon" aria-hidden="true">✳</span>
+            <h3>Ideas made real</h3>
+            <p>Taking a spark of an idea and shaping it into something people can use.</p>
+          </article>
+        </div>
+      </section>
+
+      <footer className="site-footer" id="contact">
+        <div>
+          <p className="footer-kicker">HAVE A GOOD ONE IN MIND?</p>
+          <h2>Let’s make<br /><span>something meaningful.</span></h2>
+        </div>
+        <a className="footer-link" href="mailto:?subject=Hello%20Omkar">Get in touch <span aria-hidden="true">↗</span></a>
+        <div className="footer-bottom">
+          <a className="wordmark footer-wordmark" href="#home"><span className="wordmark-mark">OJ</span><span>Omkar Jadhav</span></a>
+          <span>Made with care and a lot of curiosity.</span>
+          <a href="#home">Back to top ↑</a>
+        </div>
+      </footer>
+    </main>
   )
 }
 
